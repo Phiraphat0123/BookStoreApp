@@ -17,18 +17,25 @@ namespace BetaBookStoreApp
     /// <summary>
     /// Interaction logic for ForManager.xaml
     /// </summary>
+   
     public partial class ForManager : Window
     {
         private int maID;
         private string maPw;
         Register register;
-        MainWindow main;
+        MainWindow main; 
+       
+    
+
         public ForManager()
         {
             InitializeComponent();
             register = new Register();
             main = new MainWindow();
         }
+
+       
+        
 
         private void submit_click(object sender, RoutedEventArgs e)
         {//idmanager = 0123456789 password = Jbil0123
@@ -41,7 +48,7 @@ namespace BetaBookStoreApp
             if (maID.Equals(null)||maPw==null) { 
                 
             }else
-            if (maID == 0123456789 && maPw == "jbil0123")
+            if (maID == 0123456789 && maPw == "0123")
             {
                 
                 register.Show();
