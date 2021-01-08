@@ -1,0 +1,21 @@
+﻿<Window x:Class="BetaBookStoreApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BetaBookStoreApp"
+        mc:Ignorable="d"
+        Title="Beta book store app." Height="450" Width="480.473" MinWidth="480.473" MinHeight="450">
+    <Grid Margin="0,0,0.4,0" Background="#FF4D5784">
+        <TextBlock HorizontalAlignment="Left" Margin="208,59,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="48" Width="116" FontSize="30" Foreground="#FF6F97B1" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="65" Margin="159,68,0,0" Source="storytelling.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="117,146,0,0" TextWrapping="Wrap" Text="Employee ID" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="117,222,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <Button x:Name="BSignIn" Content="Sign in" HorizontalAlignment="Left" Margin="263,314,0,0" VerticalAlignment="Top" Width="79" Height="30" Background="#FFFF748A" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Click="BSignIn_Click"/>
+        <Button x:Name="BRegister" Content="Register" HorizontalAlignment="Left" Margin="139,314,0,0" VerticalAlignment="Top" Width="79" Height="30" Background="#FFFF748A" FontSize="16" FontWeight="Bold" BorderBrush="#FFFCE2C8" BorderThickness="6,0" Click="BRegister_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="208,94,0,0" TextWrapping="Wrap" Text="Book Store" VerticalAlignment="Top" Height="32" Width="116" FontSize="20" Foreground="#FF6F97B1"/>
+        <TextBox x:Name="Password_Copy" HorizontalAlignment="Left" Height="36" Margin="117,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" FontSize="24" Background="#FFB7DED7" BorderBrush="{x:Null}"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="117,249,0,0" VerticalAlignment="Top" Width="247" Height="36" Background="#FFB7DED7" FontSize="24"/>
+
+    </Grid>
+</Window>
