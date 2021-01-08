@@ -1,0 +1,25 @@
+﻿<Window x:Class="BetaBookStoreApp.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BetaBookStoreApp"
+        mc:Ignorable="d"
+        Title="Register" Width="480.473" MinHeight="450" MinWidth="474.4" Height="450">
+    <Grid Background="#FF4D5784" Margin="0,0,-0.6,0">
+        <Button x:Name="BSeachEM" Content="  Show All Employee" HorizontalAlignment="Left" Height="48.8" Margin="269.667,213,0,0" VerticalAlignment="Top" Width="169.133" Click="BSeachEM_Click" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UseLayoutRounding="False" Foreground="#FFFCE2C8" BorderBrush="{x:Null}" Background="#FFFF748A"/>
+        <Button x:Name="BDeleteEm" Content="Delete Employee" HorizontalAlignment="Left" Height="49" Margin="270,281,0,0" VerticalAlignment="Top" Width="169" Click="BDeleteEm_Click" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8" BorderBrush="{x:Null}" Background="#FFFF748A"/>
+        <Button x:Name="BEditEm" Content="Edit Employee" HorizontalAlignment="Left" Height="48" Margin="270,147,0,0" VerticalAlignment="Top" Width="169" Click="BEditEm_Click" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8" BorderBrush="{x:Null}" Background="#FFFF748A"/>
+        <Button x:Name="BAddEm" Content="Add Employee" HorizontalAlignment="Left" Height="49" Margin="270,83,0,0" VerticalAlignment="Top" Width="169" Click="BAddEm_click" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8" Background="#FFFF748A" BorderBrush="{x:Null}"/>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="477" Margin="-1,0" Background="#FF6F97B1"/>
+        <Button x:Name="BHome" Content="Home" Height="28" Margin="393,6,0,0" VerticalAlignment="Top" Width="64" Click="BHome_click" BorderBrush="{x:Null}" Background="#FFFF748A" FontWeight="Bold" Foreground="#FFFCE2C8" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Padding="1" Grid.IsSharedSizeScope="True" FlowDirection="RightToLeft" VerticalContentAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="31,10,0,0" VerticalAlignment="Top" Width="57" Source="storytelling.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,6,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="21" Width="45" FontWeight="Bold" Foreground="#FFB7DED7" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,23,0,0" TextWrapping="Wrap" Text="Book Store" VerticalAlignment="Top" Height="21" Width="78" FontSize="10" Foreground="#FFB7DED7"/>
+        <TextBox x:Name="txtIdEm" HorizontalAlignment="Left" Height="25" Margin="41,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
+        <TextBox x:Name="txtPw" HorizontalAlignment="Left" Height="25" Margin="41,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,129,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,78,0,0" TextWrapping="Wrap" Text="Employee ID" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="8" Height="207" Width="169"><Run Text="&#x9;- "/><Run Text="Adding information will create an ID and create a password in the following ways: ID must be generated from 4-10 digits and Password can be set to anything (numbers or letters) 6-10 characters."/><LineBreak/><Run Text="&#x9;- Editing information will only edit the Password information, if you can't remember the password by the following methods, enter Employee ID in Employee ID field and enter (new) code that you want to change in the field. Password and press the Edit button."/><LineBreak/><Run Text="&#x9;- The full display is to show all employee IDs and passwords (but not managers)"/><LineBreak/><Run Text="&#x9;- To delete the information is to remove the ID and Password information from the system, the method is to enter the ID number and password in the field and press the button delete."/></TextBlock>
+    </Grid>
+</Window>
