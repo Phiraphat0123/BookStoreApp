@@ -117,7 +117,7 @@ namespace BookStoreProject
                 db.Open();
 
                 String tableCommand = "CREATE TABLE IF NOT " +
-                    "EXISTS EmployeeTable (ID INTEGER(10) NOT NULL PRIMARY KEY, " +
+                    "EXISTS EmployeeTable (ID VARCHAR(10) NOT NULL PRIMARY KEY, " +
                     "Password VARCHAR(10) NOT NULL )";
 
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
@@ -125,7 +125,7 @@ namespace BookStoreProject
                 createTable.ExecuteReader();
             }
         }
-        public static void AddDataEmployee(int ID, string Password)
+        public static void AddDataEmployee(string ID, string Password)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=EmployeeTable.db"))
             {
@@ -141,34 +141,45 @@ namespace BookStoreProject
             }
 
         }
-        public static List<String> GetEmployee()
+        public static List<String> GetEmployee(string Input)
         {
             List<string> data = new List<string>();
 
             using (SqliteConnection db = new SqliteConnection("Filename=EmployeeTable.db"))
             {
                 db.Open();
-                SqliteCommand selectCommand = new SqliteCommand("SELECT * from EmployeeTable", db);
+                SqliteCommand selectCommand = new SqliteCommand(Input, db);
+                
+               
                 SqliteDataReader query = selectCommand.ExecuteReader();
                 while (query.Read())
                 {
                     data.Add(query.GetString(0));
-                    data.Add(query.GetString(1));
                     
+
                 }
                 db.Close();
             }
             return data;
         }
-        public static void UpdateEmployee(int ID, string Password)
+
+
+
+
+
+
+
+
+
+        public static void UpdateEmployee(string Input)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=EmployeeTable.db"))
             {
                 db.Open();
                 SqliteCommand AddEmployeeCommand = new SqliteCommand();
                 AddEmployeeCommand.Connection = db;
-                AddEmployeeCommand.CommandText = "UPDATE BookTable SET Password = @Password,  WHERE ID = @ID; ";
-                AddEmployeeCommand.Parameters.AddWithValue("@Password", Password);
+                AddEmployeeCommand.CommandText = Input;
+                
 
                 AddEmployeeCommand.ExecuteReader();
                 db.Close();
@@ -177,7 +188,7 @@ namespace BookStoreProject
 
 
         }
-        public static void DeleteEmployee(int ID)
+        public static void DeleteEmployee(string ID)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=EmployeeTable.db"))
             {
