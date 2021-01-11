@@ -85,12 +85,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BookInfor.xaml.cs">
+      <DependentUpon>BookInfor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerInfor.xaml.cs">
+      <DependentUpon>CustomerInfor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ForManager.xaml.cs">
       <DependentUpon>ForManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Page Include="BookInfor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerInfor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
