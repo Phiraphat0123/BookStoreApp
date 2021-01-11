@@ -24,6 +24,7 @@ namespace BetaBookStoreApp
         private string maPw;
         Register register;
         MainWindow main; 
+        
        
     
 
@@ -41,14 +42,14 @@ namespace BetaBookStoreApp
         {//idmanager = 0123456789 password = Jbil0123
             maID = int.Parse(txtIdMa.Text);
             maPw = txtPassw.Password;
-            /* if (maID!=0123456789 || maPw!="jbil0123") {
+            /* if (maID!=1234567890 || maPw!="jbil0123") {
                  MessageBox.Show("Password or ID is not correct.");
                  this.Close();
              }*/
-            if (maID.Equals(null)||maPw==null) { 
-                
+            if (maID.Equals(null)||maPw==null) {
+                MessageBox.Show("Please enter information", "ERROR");
             }else
-            if (maID == 0123456789 && maPw == "0123")
+            if (maID == 1234567890 && maPw == "jbil0123")
             {
                 
                 register.Show();
@@ -59,6 +60,12 @@ namespace BetaBookStoreApp
                 main.Show();
                 this.Close();
             }
+        }
+
+        private void BHome_click(object sender, RoutedEventArgs e)
+        {
+            main.Show();
+            this.Close();
         }
     }
 }
