@@ -20,17 +20,17 @@ namespace BookStoreProject
                 db.Open();
 
                 String tableCommand = "CREATE TABLE IF NOT " +
-                    "EXISTS BookTable (ISBN INTEGER PRIMARY KEY, " +
-                    "Title VARCHAR(30) NOT NULL ," +
-                    "Description VARCHAR(100) NOT NULL," +
-                    "Price FLOAT(2) NOT NULL)";
+                    "EXISTS BookTable (ISBN NVARCHAR(10) NOT NULL PRIMARY KEY, " +
+                    "Title NVARCHAR(10), " + 
+                    "Description NVARCHAR(10)," +
+                    "Price NVARCHAR(9)  )";
 
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
 
                 createTable.ExecuteReader();
             }
         }
-        public static void AddDataBook(int ISBN, string Title, string Description, float Price)
+        public static void AddDataBook(string ISBN, string Title,string Description,string Price)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=BookTable.db"))
             {
@@ -48,13 +48,39 @@ namespace BookStoreProject
             }
 
         }
-        public static List<String> GetBook()
+        public static List<String> GetBook(string Input)
         {
             List<string> data = new List<string>();
+
             using (SqliteConnection db = new SqliteConnection("Filename=BookTable.db"))
             {
                 db.Open();
-                SqliteCommand selectCommand = new SqliteCommand("SELECT * from BookTable", db);
+                SqliteCommand selectCommand = new SqliteCommand(Input, db);
+                
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    data.Add(query.GetString(0));
+                    
+
+
+                }
+                db.Close();
+            }
+            return data;
+        }
+        public static List<String> GetBook(string Input1,string Input2)
+        {
+            //string mixInput = Input1 + Input2;
+            List<string> data = new List<string>();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=BookTable.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand(Input1 + Input2, db);
+
+
                 SqliteDataReader query = selectCommand.ExecuteReader();
                 while (query.Read())
                 {
@@ -62,23 +88,21 @@ namespace BookStoreProject
                     data.Add(query.GetString(1));
                     data.Add(query.GetString(2));
                     data.Add(query.GetString(3));
+
+
                 }
                 db.Close();
             }
             return data;
         }
-        public static void UpdateDataBook(int ISBN, string Title, string Description, float Price)
+        public static void UpdateBook(string Input)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=BookTable.db"))
             {
                 db.Open();
                 SqliteCommand AddBookCommand = new SqliteCommand();
                 AddBookCommand.Connection = db;
-                AddBookCommand.CommandText = "UPDATE BookTable SET Title = @Title, Description = @Description ,Price = @Price WHERE ISBN = @ISBN; ";
-                AddBookCommand.Parameters.AddWithValue("@ISBN", ISBN);
-                AddBookCommand.Parameters.AddWithValue("@Title", Title);
-                AddBookCommand.Parameters.AddWithValue("@Description", Description);
-                AddBookCommand.Parameters.AddWithValue("@Price", Price);
+                AddBookCommand.CommandText = Input;
 
 
                 AddBookCommand.ExecuteReader();
@@ -86,27 +110,28 @@ namespace BookStoreProject
 
             }
 
-
         }
-        public static void DeleteDataBook(int ISBN)
+        public static void DeleteBook(string ISBN)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=BookTable.db"))
             {
                 db.Open();
-                SqliteCommand AddBookCommand = new SqliteCommand();
-                AddBookCommand.Connection = db;
-                AddBookCommand.CommandText = "DELETE FROM BookTable WHERE ISBN =@ISBN;";
-                AddBookCommand.Parameters.AddWithValue("@ISBN", ISBN);
+                SqliteCommand BookCommand = new SqliteCommand();
+                BookCommand.Connection = db;
+                BookCommand.CommandText = "DELETE FROM BookTable WHERE ISBN =@ISBN;";
+                BookCommand.Parameters.AddWithValue("@ISBN", ISBN);
 
 
 
-                AddBookCommand.ExecuteReader();
+                BookCommand.ExecuteReader();
                 db.Close();
 
             }
 
 
         }
+
+
         //Employee Data
         public static void CreatEmployeeTable()
         {
