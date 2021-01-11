@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 
 
 
+
 namespace BetaBookStoreApp
 {
     /// <summary>
@@ -27,6 +28,7 @@ namespace BetaBookStoreApp
         Dashboard dash;
         public MainWindow()
         {
+           
             InitializeComponent();
             Data.CreatEmployeeTable();
             dash = new Dashboard();
@@ -43,7 +45,8 @@ namespace BetaBookStoreApp
         }
 
         private void BSignIn_Click(object sender, RoutedEventArgs e)
-        { EmID = txtID.Text;
+        {
+            EmID = txtID.Text;
             Pw = txtPw.Password;
             Boolean checkId= false;
             Boolean checkPw = false;
@@ -82,6 +85,6 @@ namespace BetaBookStoreApp
 
         }
 
-       
+        
     }
 }
