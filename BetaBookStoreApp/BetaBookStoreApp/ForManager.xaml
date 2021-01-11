@@ -11,7 +11,12 @@
         <PasswordBox x:Name="txtPassw" HorizontalAlignment="Left" Height="36" Margin="130,236,0,0" VerticalAlignment="Top" Width="220" FontSize="25" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
         <TextBlock HorizontalAlignment="Left" Height="34" Margin="130,202,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="116" FontSize="24" FontWeight="Bold" Foreground="#FFFCE2C8"/>
         <TextBox x:Name="txtIdMa" HorizontalAlignment="Left" Height="36" Margin="130,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontSize="25" Background="#FFB7DED7" BorderBrush="{x:Null}"/>
-        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Left" Height="34" Margin="192,313,0,0" VerticalAlignment="Top" Width="86" BorderThickness="1" ClickMode="Press" Background="#FFFF748A" FontWeight="Bold" FontSize="16" Click="submit_click"/>
+        <Button x:Name="submit" Content="Submit" HorizontalAlignment="Left" Height="34" Margin="192,313,0,0" VerticalAlignment="Top" Width="86" BorderThickness="1" ClickMode="Press" Background="#FFFF748A" FontWeight="Bold" FontSize="16" Click="submit_click" Foreground="#FFFCE2C8"/>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="476" Margin="-1,0" Background="#FF6F97B1"/>
+        <Button x:Name="BHome" Content="Home" Height="28" Margin="393,6,0,0" VerticalAlignment="Top" Width="64" Click="BHome_click" BorderBrush="{x:Null}" Background="#FFFF748A" FontWeight="Bold" Foreground="#FFFCE2C8" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Padding="1" Grid.IsSharedSizeScope="True" FlowDirection="RightToLeft" VerticalContentAlignment="Center"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="31,10,0,0" VerticalAlignment="Top" Width="57" Source="storytelling.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,6,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="21" Width="45" FontWeight="Bold" Foreground="#FFB7DED7" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,23,0,0" TextWrapping="Wrap" Text="Book Store" VerticalAlignment="Top" Height="21" Width="78" FontSize="10" Foreground="#FFB7DED7"/>
 
     </Grid>
 </Window>
