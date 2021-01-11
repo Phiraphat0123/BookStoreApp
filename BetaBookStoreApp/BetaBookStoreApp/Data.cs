@@ -117,8 +117,8 @@ namespace BookStoreProject
                 db.Open();
 
                 String tableCommand = "CREATE TABLE IF NOT " +
-                    "EXISTS EmployeeTable (ID VARCHAR(10) NOT NULL PRIMARY KEY, " +
-                    "Password VARCHAR(10) NOT NULL )";
+                    "EXISTS EmployeeTable (ID NVARCHAR(10) NOT NULL PRIMARY KEY, " +
+                    "Password NVARCHAR(10) NOT NULL )";
 
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
 
@@ -162,15 +162,6 @@ namespace BookStoreProject
             }
             return data;
         }
-
-
-
-
-
-
-
-
-
         public static void UpdateEmployee(string Input)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=EmployeeTable.db"))
@@ -185,8 +176,7 @@ namespace BookStoreProject
                 db.Close();
 
             }
-
-
+ 
         }
         public static void DeleteEmployee(string ID)
         {
