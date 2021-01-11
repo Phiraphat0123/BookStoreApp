@@ -163,7 +163,7 @@ namespace BetaBookStoreApp
                 data = data + count + ". " + EmData + '\n';
                 count++;
             }
-            MessageBox.Show("Employee ID" + '\n' + data);
+            MessageBox.Show(  '\n' + data, "Employee ID");
 
         }
     }
