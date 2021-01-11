@@ -56,13 +56,14 @@ namespace BetaBookStoreApp
             }
             if (Check == false)
             {
-                Data.AddDataEmployee(EmID, Pw);
+                Data.AddDataEmployee(EmID, Pw); 
+                    txtIdEm.Text = null;
+                    txtPw.Text = null;
             }
             else {
                 MessageBox.Show("The data could not be added because the data was duplicated with the existing.", "ERROR");
             }
-            txtIdEm.Text = null;
-            txtPw.Text = null;
+           
             }
         }
 
@@ -70,42 +71,66 @@ namespace BetaBookStoreApp
         {//จะทำการลบข้อมูลทั้งหมดในตารางจาก ID ที่ใส่ลงไป โดยจะลบจากข้อมูลที่มีเท่านั้น
             EmID = txtIdEm.Text;
             Pw = txtPw.Text;
+            Boolean Check = false;
             Boolean checkId = false;
             Boolean checkPw = false;
-            
-             foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable"))
-            {
-                if (EmID == EmId)
-                {
-                    checkId = true;
+             foreach (string ID in Data.GetEmployee("SELECT ID FROM EmployeeTable WHERE ID='1234567890'")) {
+                if (EmID == ID ) {
+                   Check= true;
                 }
-                
             }
-            foreach (string pw in Data.GetEmployee("SELECT Password FROM EmployeeTable")) {
-                
-                if (Pw == pw) 
-                {
-                    checkPw = true;
-                }
-            
-            }
-            if (checkId == true && checkPw == true)
+          if (Check == true ) {
+                MessageBox.Show("Manager's data could not be deleted.", "ERROR");
+            } else 
+            if(Check == false) 
             {
-                Data.DeleteEmployee(EmID);
-                txtIdEm.Text = null;
-                txtPw.Text = null;
-            }else
-            { MessageBox.Show("The deletion could not be performed because there is no data.","ERROR"); }
-           
+                foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable"))
+                {
+                    if (EmID == EmId)
+                    {
+                        checkId = true;
+                    }
+
+                }
+                foreach (string pw in Data.GetEmployee("SELECT Password FROM EmployeeTable")) {
+
+                    if (Pw == pw)
+                    {
+                        checkPw = true;
+                    }
+
+                }
+                if (checkId == true && checkPw == true)
+                {
+                    Data.DeleteEmployee(EmID);
+                    txtIdEm.Text = null;
+                    txtPw.Text = null;
+                } else
+                { MessageBox.Show("The deletion could not be performed because there is no data.", "ERROR"); }
+            }
            
         }
         private void BEditEm_Click(object sender, RoutedEventArgs e)
         {//สำหรับพนักงานที่ลืมรหัสผ่านเท่านั้น
             EmID = txtIdEm.Text;
-        
+            Boolean Check = false;
             Pw = txtPw.Text;
             Boolean check = false;
-             foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable")) {
+            foreach (string ID in Data.GetEmployee("SELECT ID FROM EmployeeTable WHERE ID='1234567890'"))
+            {
+                if (EmID == ID)
+                {
+                    Check = true;
+                }
+            }
+            if (Check == true)
+            {
+                MessageBox.Show("The manager's information cannot be edited.", "ERROR");
+            }
+            else
+            if (Check == false)
+            {
+                foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable")) {
                 if (EmId ==EmID )
                 {
                     check = true;
@@ -124,10 +149,10 @@ namespace BetaBookStoreApp
                 MessageBox.Show("Cannot be edited due to lack of information.","ERROR");
             }
 
-           
-            
-            
         }
+
+
+    }
 
         private void BShowAllEM_Click(object sender, RoutedEventArgs e)
         {
