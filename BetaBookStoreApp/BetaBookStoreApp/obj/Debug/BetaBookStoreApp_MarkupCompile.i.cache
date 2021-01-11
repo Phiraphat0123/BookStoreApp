@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\App.xaml
-4-680622445
+6676935233
 3178037739
-101405297326
+12559340595
 127871509737
-Dashboard.xaml;ForManager.xaml;MainWindow.xaml;Register.xaml;
+BookInfor.xaml;CustomerInfor.xaml;Dashboard.xaml;ForManager.xaml;MainWindow.xaml;Register.xaml;
 
-True
+False
 
