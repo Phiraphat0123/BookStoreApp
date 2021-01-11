@@ -19,9 +19,16 @@ namespace BetaBookStoreApp
     /// </summary>
     public partial class Dashboard : Window
     {
+        BookInformation Book;
+        CutomerInfor customer;
         public Dashboard()
         {
             InitializeComponent();
+        }
+
+        private void BCustomerIn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
