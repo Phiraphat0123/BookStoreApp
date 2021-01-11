@@ -11,11 +11,11 @@
         <Image HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="65" Margin="159,68,0,0" Source="storytelling.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="117,146,0,0" TextWrapping="Wrap" Text="Employee ID" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8"/>
         <TextBlock HorizontalAlignment="Left" Margin="117,222,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8"/>
-        <Button x:Name="BSignIn" Content="Sign in" HorizontalAlignment="Left" Margin="263,314,0,0" VerticalAlignment="Top" Width="79" Height="30" Background="#FFFF748A" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Click="BSignIn_Click"/>
-        <Button x:Name="BRegister" Content="Register" HorizontalAlignment="Left" Margin="139,314,0,0" VerticalAlignment="Top" Width="79" Height="30" Background="#FFFF748A" FontSize="16" FontWeight="Bold" BorderBrush="#FFFCE2C8" BorderThickness="6,0" Click="BRegister_Click"/>
+        <Button x:Name="BSignIn" Content="Sign in" HorizontalAlignment="Left" Margin="263,314,0,0" VerticalAlignment="Top" Width="79" Height="30" Background="#FFFF748A" FontSize="16" FontWeight="Bold" BorderBrush="{x:Null}" Click="BSignIn_Click" Foreground="#FFFCE2C8"/>
+        <Button x:Name="BRegister" Content="Register" HorizontalAlignment="Left" Margin="139,314,0,0" VerticalAlignment="Top" Width="79" Height="30" Background="#FFFF748A" FontSize="16" FontWeight="Bold" BorderBrush="#FFFCE2C8" BorderThickness="6,0" Click="BRegister_Click" Foreground="#FFFCE2C8"/>
         <TextBlock HorizontalAlignment="Left" Margin="208,94,0,0" TextWrapping="Wrap" Text="Book Store" VerticalAlignment="Top" Height="32" Width="116" FontSize="20" Foreground="#FF6F97B1"/>
-        <TextBox x:Name="Password_Copy" HorizontalAlignment="Left" Height="36" Margin="117,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" FontSize="24" Background="#FFB7DED7" BorderBrush="{x:Null}"/>
-        <PasswordBox HorizontalAlignment="Left" Margin="117,249,0,0" VerticalAlignment="Top" Width="247" Height="36" Background="#FFB7DED7" FontSize="24"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="36" Margin="117,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" FontSize="24" Background="#FFB7DED7" BorderBrush="{x:Null}"/>
+        <PasswordBox x:Name="txtPw" HorizontalAlignment="Left" Margin="117,249,0,0" VerticalAlignment="Top" Width="247" Height="36" Background="#FFB7DED7" FontSize="24"/>
 
     </Grid>
 </Window>
