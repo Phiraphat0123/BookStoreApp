@@ -281,6 +281,30 @@ namespace BookStoreProject
             }
             return data;
         }
+        public static List<String> GetCustomer(string Input1,string Input2)
+        {
+            List<string> data = new List<string>();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=CustomerTable.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand(Input1+Input2, db);
+
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    data.Add(query.GetString(0));
+                    data.Add(query.GetString(1));
+                    data.Add(query.GetString(2));
+                    data.Add(query.GetString(3));
+
+
+                }
+                db.Close();
+            }
+            return data;
+        }
         public static void UpdateCustomer(string Input)
         {
             using (SqliteConnection db = new SqliteConnection("Filename=CustomerTable.db"))
