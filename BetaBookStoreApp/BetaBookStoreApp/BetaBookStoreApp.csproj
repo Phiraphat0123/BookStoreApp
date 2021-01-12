@@ -88,6 +88,9 @@
     <Compile Include="BInfor.xaml.cs">
       <DependentUpon>BInfor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CusInfor.xaml.cs">
+      <DependentUpon>CusInfor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ForManager.xaml.cs">
       <DependentUpon>ForManager.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Page Include="BInfor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CusInfor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
