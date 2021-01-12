@@ -37,62 +37,157 @@ namespace BetaBookStoreApp
             Title = txtTitle.Text;
             Description = txtDescription.Text;
             Price = txtPrice.Text;
-            Data.AddDataBook(ISBN,Title,Description,Price);
-            txtDescription.Text = "";
-            txtISBN.Text = "";
-            txtPrice.Text = "";
-            txtTitle.Text = "";
+            Boolean check = false;
+            
+            if (ISBN == "" || Title == "" || Description == "" || Price == "")
+            {
+                MessageBox.Show("Please enter all information.", "ERROR");
+            }
+            else 
+            {
+                foreach (string isbn in Data.GetBook("SELECT ISBN FROM BookTable;")) 
+                {
+                    if (ISBN == isbn) 
+                    {
+                        check = true;
+                    }
+                }
+                if (check == true)
+                {
+                    MessageBox.Show("The data could not be added because the data was duplicated with the existing.", "ERROR");
+                } else
+                if (check == false) 
+                {
+                    Data.AddDataBook(ISBN, Title, Description, Price);
+                    txtDescription.Text = "";
+                    txtISBN.Text = "";
+                    txtPrice.Text = "";
+                    txtTitle.Text = "";
+                }
+            
+            }
+           
         }
 
         private void ShowAllBook_Click(object sender, RoutedEventArgs e)
-        {
+        {//ถ้าหากกดปกติแบบไม่มีข้อมูลจะโชว์แค่ชื่อของหนังสือแต่ถ้าใส่ ISBN ลงในช่อง ISBN จะแสดงรายละเอียดของหนังสือเล่มนั้น
             ISBN = txtISBN.Text;
             Title = txtTitle.Text;
             Description = txtDescription.Text;
             Price = txtPrice.Text;
             string data = "";
             Boolean checkISBN= false;
-            Boolean checkTitle = false;
-            Boolean checkDescription = false;
+            
             
             if (Price != "") 
                 {
                 MessageBox.Show("Please delete price information.", "ERROR");
                 }
             else
-                if (ISBN != "" || Title != "" || Description != ""  )
+            if (ISBN != "" || Title != "" || Description != ""  )
+            {
+                 foreach (string isbn in Data.GetBook("SELECT ISBN FROM BookTable;")) 
                  {
-                    foreach (string isbn in Data.GetBook("SELECT ISBN FROM BookTable")) 
-                    {
                         if (ISBN == isbn) checkISBN =true;
-                    }
+                 }
                     
-
                 if (checkISBN == true )
                 {
-                    foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='"+ISBN+"'"))
+                    foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='"+ISBN+"';"))
                     {
                         data = data + show + '\n';
                     }
                     MessageBox.Show(data, "Show " + ISBN);
                     
                 }
-                else { MessageBox.Show("Please delete the information.","ERROR"); }
+                else { MessageBox.Show("Please delete the information.","ERROR"); 
                 }
+            }
             else
                 if (ISBN == "" || Title == "" || Description == "" || Price == "")
-                {
-                    foreach (string showAll in Data.GetBook("SELECT ISBN FROM BookTable"))
+             {
+                    foreach (string showAll in Data.GetBook("SELECT ISBN FROM BookTable;"))
                     {
                         data = data + showAll + '\n';
                     }
                         MessageBox.Show(data);
-                }
+             }
             
                 
+        }
+
+        private void EditBook_Click(object sender, RoutedEventArgs e)
+        {   //แก้ได้แค่ ราคา เท่านั้นโดยใส่ ISBN ลงไปในช่อง ISBN
+            ISBN = txtISBN.Text;
+            Title = txtTitle.Text;
+            Description = txtDescription.Text;
+            Price = txtPrice.Text;
+            Boolean check = false;
+            if (ISBN == "" || Price == "")
+            {
+                MessageBox.Show("Please enter ISBN and Price information.", "ERROR");
             }
-            
-           
+            else 
+            {
+                foreach (string isbn in Data.GetBook("SELECT ISBN FROM BookTable;"))
+                {
+                    if (ISBN == isbn)
+                    {
+                        check = true;
+                    }
+                }
+
+                if (check == true)
+                {
+                    Data.UpdateBook("UPDATE BookTable SET Price ='"+Price+"' WHERE ISBN ="+ISBN+";");
+             
+                    txtISBN.Text = "";
+                    txtPrice.Text = "";
+                    
+                }
+                else
+                if (check == false) 
+                {
+                    MessageBox.Show("Cannot be edited due to lack of information.", "ERROR");
+                }
+
+            }
+        }
+
+        private void DeleteBook_Click(object sender, RoutedEventArgs e)
+        {
+            ISBN = txtISBN.Text;
+            Title = txtTitle.Text;
+            Description = txtDescription.Text;
+            Price = txtPrice.Text;
+            Boolean check = false;
+            if (ISBN == "" )
+            {
+                MessageBox.Show("Please enter ISBN information.", "ERROR");
+            }
+            else 
+            {
+                foreach (string isbn in Data.GetBook("SELECT ISBN FROM BookTable;"))
+                {
+                    if (ISBN == isbn)
+                    {
+                        check = true;
+                    }
+                }
+                if (check == true )
+                {
+                    Data.DeleteBook(ISBN);
+                  
+                    txtISBN.Text = "";
+                  
+                }
+                else
+                if (check == false) 
+                {
+                    MessageBox.Show("Please enter ISBN information.", "ERROR");
+                }
+            }
         }
     }
+}
 
