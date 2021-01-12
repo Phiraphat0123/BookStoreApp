@@ -19,12 +19,14 @@ namespace BetaBookStoreApp
     /// </summary>
     public partial class Dashboard : Window
     {
-        BInfor Book;
+        private BInfor Book;
+        private CusInfor customer;
         
         public Dashboard()
         {
             InitializeComponent();
             Book = new BInfor();
+            customer = new CusInfor();
 
         }
 
@@ -38,7 +40,8 @@ namespace BetaBookStoreApp
 
         private void BCustomerIn_Click(object sender, RoutedEventArgs e)
         {
-
+            customer.Show();
+            this.Close();
         }
     }
 }
