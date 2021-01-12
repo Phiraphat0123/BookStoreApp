@@ -46,7 +46,7 @@ namespace BetaBookStoreApp
                 MessageBox.Show("Unable to add empty data.","ERROR");
             }
             else { 
-            foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable")) {
+            foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable;")) {
                 if (txtIdEm.Text == EmId || txtPw.Text == EmId)
                 {
                     Check = true;
@@ -74,7 +74,7 @@ namespace BetaBookStoreApp
             Boolean Check = false;
             Boolean checkId = false;
             Boolean checkPw = false;
-             foreach (string ID in Data.GetEmployee("SELECT ID FROM EmployeeTable WHERE ID='1234567890'")) {
+             foreach (string ID in Data.GetEmployee("SELECT ID FROM EmployeeTable WHERE ID='1234567890';")) {
                 if (EmID == ID ) {
                    Check= true;
                 }
@@ -84,7 +84,7 @@ namespace BetaBookStoreApp
             } else 
             if(Check == false) 
             {
-                foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable"))
+                foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable;"))
                 {
                     if (EmID == EmId)
                     {
@@ -92,7 +92,7 @@ namespace BetaBookStoreApp
                     }
 
                 }
-                foreach (string pw in Data.GetEmployee("SELECT Password FROM EmployeeTable")) {
+                foreach (string pw in Data.GetEmployee("SELECT Password FROM EmployeeTable;")) {
 
                     if (Pw == pw)
                     {
@@ -116,7 +116,7 @@ namespace BetaBookStoreApp
             Boolean Check = false;
             Pw = txtPw.Text;
             Boolean check = false;
-            foreach (string ID in Data.GetEmployee("SELECT ID FROM EmployeeTable WHERE ID='1234567890'"))
+            foreach (string ID in Data.GetEmployee("SELECT ID FROM EmployeeTable WHERE ID='1234567890';"))
             {
                 if (EmID == ID)
                 {
@@ -130,7 +130,7 @@ namespace BetaBookStoreApp
             else
             if (Check == false)
             {
-                foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable")) {
+                foreach (string EmId in Data.GetEmployee("SELECT ID FROM EmployeeTable;")) {
                 if (EmId ==EmID )
                 {
                     check = true;
