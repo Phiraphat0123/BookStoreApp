@@ -21,7 +21,7 @@ namespace BetaBookStoreApp
     public partial class BInfor : Window
     {
         private string ISBN;
-        private string Title;
+        private string title;
         private string Description;
         private string Price;
 
@@ -34,12 +34,12 @@ namespace BetaBookStoreApp
         private void AddBook_Click(object sender, RoutedEventArgs e)
         {
             ISBN = txtISBN.Text;
-            Title = txtTitle.Text;
+            title = txtTitle.Text;
             Description = txtDescription.Text;
             Price = txtPrice.Text;
             Boolean check = false;
             
-            if (ISBN == "" || Title == "" || Description == "" || Price == "")
+            if (ISBN == "" || title == "" || Description == "" || Price == "")
             {
                 MessageBox.Show("Please enter all information.", "ERROR");
             }
@@ -72,19 +72,19 @@ namespace BetaBookStoreApp
         private void ShowAllBook_Click(object sender, RoutedEventArgs e)
         {//ถ้าหากกดปกติแบบไม่มีข้อมูลจะโชว์แค่ชื่อของหนังสือแต่ถ้าใส่ ISBN ลงในช่อง ISBN จะแสดงรายละเอียดของหนังสือเล่มนั้น
             ISBN = txtISBN.Text;
-            Title = txtTitle.Text;
+            title = txtTitle.Text;
             Description = txtDescription.Text;
             Price = txtPrice.Text;
             string data = "";
             Boolean checkISBN= false;
             
             
-            if (Price != "") 
+            if (Price != ""|| Title != ""|| Description != "") 
                 {
-                MessageBox.Show("Please delete price information.", "ERROR");
+                MessageBox.Show("Please delete the information. Title, Description, Price", "ERROR");
                 }
             else
-            if (ISBN != "" || Title != "" || Description != ""  )
+            if (ISBN != ""  )
             {
                  foreach (string isbn in Data.GetBook("SELECT ISBN FROM BookTable;")) 
                  {
@@ -100,11 +100,11 @@ namespace BetaBookStoreApp
                     MessageBox.Show(data, "Show " + ISBN);
                     
                 }
-                else { MessageBox.Show("Please delete the information.","ERROR"); 
+                else { MessageBox.Show("Please delete ISBN information.","ERROR"); 
                 }
             }
             else
-                if (ISBN == "" || Title == "" || Description == "" || Price == "")
+                if (ISBN == "" || title == "" || Description == "" || Price == "")
              {
                     foreach (string showAll in Data.GetBook("SELECT ISBN FROM BookTable;"))
                     {
@@ -119,8 +119,6 @@ namespace BetaBookStoreApp
         private void EditBook_Click(object sender, RoutedEventArgs e)
         {   //แก้ได้แค่ ราคา เท่านั้นโดยใส่ ISBN ลงไปในช่อง ISBN
             ISBN = txtISBN.Text;
-            Title = txtTitle.Text;
-            Description = txtDescription.Text;
             Price = txtPrice.Text;
             Boolean check = false;
             if (ISBN == "" || Price == "")
@@ -140,10 +138,12 @@ namespace BetaBookStoreApp
                 if (check == true)
                 {
                     Data.UpdateBook("UPDATE BookTable SET Price ='"+Price+"' WHERE ISBN ="+ISBN+";");
-             
+
+                    txtDescription.Text = "";
                     txtISBN.Text = "";
                     txtPrice.Text = "";
-                    
+                    txtTitle.Text = "";
+
                 }
                 else
                 if (check == false) 
@@ -157,9 +157,6 @@ namespace BetaBookStoreApp
         private void DeleteBook_Click(object sender, RoutedEventArgs e)
         {
             ISBN = txtISBN.Text;
-            Title = txtTitle.Text;
-            Description = txtDescription.Text;
-            Price = txtPrice.Text;
             Boolean check = false;
             if (ISBN == "" )
             {
@@ -177,9 +174,11 @@ namespace BetaBookStoreApp
                 if (check == true )
                 {
                     Data.DeleteBook(ISBN);
-                  
+                    txtDescription.Text = "";
                     txtISBN.Text = "";
-                  
+                    txtPrice.Text = "";
+                    txtTitle.Text = "";
+
                 }
                 else
                 if (check == false) 
