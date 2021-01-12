@@ -8,9 +8,9 @@
         Title="BInfor" Height="460" Width="480.473">
     <Grid Background="#FF4D5784">
         <Button x:Name="AddBook" Content="Add Book" HorizontalAlignment="Left" Margin="269,82,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="AddBook_Click"/>
-        <Button x:Name="EditBook" Content="Edit Book" HorizontalAlignment="Left" Margin="269,151,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="EditBook" Content="Edit Book" HorizontalAlignment="Left" Margin="269,151,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="EditBook_Click"/>
         <Button x:Name="ShowAllBook" Content="Show All Book" HorizontalAlignment="Left" Margin="269,225,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="ShowAllBook_Click"/>
-        <Button x:Name="DeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="269,292,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold"/>
+        <Button x:Name="DeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="269,292,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="DeleteBook_Click"/>
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="476" Margin="-1,0,-0.6,0" Background="#FF6F97B1"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="31,10,0,0" VerticalAlignment="Top" Width="57" Source="storytelling.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,6,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="21" Width="45" FontWeight="Bold" Foreground="#FFB7DED7" FontSize="14"/>
