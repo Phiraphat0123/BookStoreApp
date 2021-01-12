@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStoreProject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,14 @@ namespace BetaBookStoreApp
     /// </summary>
     public partial class CusInfor : Window
     {
+        private string CusID;
+        private string CUSName;
+        private string Address;
+        private string Email;
         public CusInfor()
         {
             InitializeComponent();
+            Data.CreatCustomerTable();
         }
 
         private void AddCus_Click(object sender, RoutedEventArgs e)
