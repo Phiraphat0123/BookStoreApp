@@ -40,3 +40,5 @@ C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\ForManage
 C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\ForManager.baml
 C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\BInfor.g.cs
 C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\BInfor.baml
+C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\CusInfor.g.cs
+C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\CusInfor.baml
