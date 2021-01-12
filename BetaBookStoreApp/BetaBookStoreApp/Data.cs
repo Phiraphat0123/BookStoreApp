@@ -143,7 +143,7 @@ namespace BookStoreProject
 
                 String tableCommand = "CREATE TABLE IF NOT " +
                     "EXISTS EmployeeTable (ID NVARCHAR(10) NOT NULL PRIMARY KEY, " +
-                    "Password NVARCHAR(10) NOT NULL )";
+                    "Password NVARCHAR(10) NOT NULL );";
 
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
 
@@ -157,7 +157,7 @@ namespace BookStoreProject
                 db.Open();
                 SqliteCommand AddEmployeeCommand = new SqliteCommand();
                 AddEmployeeCommand.Connection = db;
-                AddEmployeeCommand.CommandText = "INSERT INTO EmployeeTable VALUES(@ID,@Password)";
+                AddEmployeeCommand.CommandText = "INSERT INTO EmployeeTable VALUES(@ID,@Password);";
                 AddEmployeeCommand.Parameters.AddWithValue("@ID", ID);
                 AddEmployeeCommand.Parameters.AddWithValue("@Password", Password);
                 AddEmployeeCommand.ExecuteReader();
@@ -216,6 +216,100 @@ namespace BookStoreProject
 
 
                 AddEmployeeCommand.ExecuteReader();
+                db.Close();
+
+            }
+
+
+        }
+        //Customers Data
+        public static void CreatCustomerTable()
+        {
+
+            using (SqliteConnection db =
+               new SqliteConnection("Filename=CustomerTable.db"))
+            {
+                db.Open();
+
+                String tableCommand = "CREATE TABLE IF NOT " +
+                    "EXISTS CustomerTable (CustomerID NVARCHAR(10) NOT NULL PRIMARY KEY, " + 
+                    "CustomerName NVARCHAR(100) NOT NULL ," + 
+                    "Address NVARCHAR(300) NOT NULL ," +
+                    "Email NVARCHAR(100) NOT NULL )";
+
+                SqliteCommand createTable = new SqliteCommand(tableCommand, db);
+
+                createTable.ExecuteReader();
+            }
+        }
+        public static void AddDataCustomer(string CustomerID, string CustomerName,string Address,string Email)
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=CustomerTable.db"))
+            {
+                db.Open();
+                SqliteCommand AddCustomerCommand = new SqliteCommand();
+                AddCustomerCommand.Connection = db;
+                AddCustomerCommand.CommandText = "INSERT INTO CustomerTable VALUES(@CustomerID,@CustomerName,@Address,@Email);";
+                AddCustomerCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
+                AddCustomerCommand.Parameters.AddWithValue("@CustomerName", CustomerName);
+                AddCustomerCommand.Parameters.AddWithValue("@Address", Address);
+                AddCustomerCommand.Parameters.AddWithValue("@Email", Email);
+                AddCustomerCommand.ExecuteReader();
+                db.Close();
+
+            }
+
+        }
+        public static List<String> GetCustomer(string Input)
+        {
+            List<string> data = new List<string>();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=CustomerTable.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand(Input, db);
+
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    data.Add(query.GetString(0));
+
+
+                }
+                db.Close();
+            }
+            return data;
+        }
+        public static void UpdateCustomer(string Input)
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=CustomerTable.db"))
+            {
+                db.Open();
+                SqliteCommand AddCustomerCommand = new SqliteCommand();
+                AddCustomerCommand.Connection = db;
+                AddCustomerCommand.CommandText = Input;
+
+
+                AddCustomerCommand.ExecuteReader();
+                db.Close();
+
+            }
+
+        }
+        public static void DeleteCustomer(string CustomerID)
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=CustomerTable.db"))
+            {
+                db.Open();
+                SqliteCommand AddCustomerCommand = new SqliteCommand();
+                AddCustomerCommand.Connection = db;
+                AddCustomerCommand.CommandText = "DELETE FROM CustomerTable WHERE CustomerID = @CustomerID;";
+                AddCustomerCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
+
+
+
+                AddCustomerCommand.ExecuteReader();
                 db.Close();
 
             }
