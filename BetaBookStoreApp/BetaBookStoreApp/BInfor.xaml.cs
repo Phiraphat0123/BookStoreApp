@@ -75,6 +75,7 @@ namespace BetaBookStoreApp
             title = txtTitle.Text;
             Description = txtDescription.Text;
             Price = txtPrice.Text;
+            int count = 1;
             string data = "";
             Boolean checkISBN= false;
             
@@ -95,9 +96,10 @@ namespace BetaBookStoreApp
                 {
                     foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='"+ISBN+"';"))
                     {
-                        data = data + show + '\n';
+                        data = data +count+". "+ show + '\n';
+                        count++; 
                     }
-                    MessageBox.Show(data, "Show " + ISBN);
+                    MessageBox.Show(data, "Show book ID" + ISBN);
                     
                 }
                 else { MessageBox.Show("Please delete ISBN information.","ERROR"); 
@@ -110,7 +112,7 @@ namespace BetaBookStoreApp
                     {
                         data = data + showAll + '\n';
                     }
-                        MessageBox.Show(data);
+                        MessageBox.Show(data,"All Book");
              }
             
                 
@@ -183,7 +185,7 @@ namespace BetaBookStoreApp
                 else
                 if (check == false) 
                 {
-                    MessageBox.Show("Please enter ISBN information.", "ERROR");
+                    MessageBox.Show("The data could not be deleted because there was no data.", "ERROR");
                 }
             }
         }
