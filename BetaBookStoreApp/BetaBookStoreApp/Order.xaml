@@ -12,16 +12,18 @@
         <TextBlock HorizontalAlignment="Left" Margin="57,6,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="21" Width="45" FontWeight="Bold" Foreground="#FFB7DED7" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,23,0,0" TextWrapping="Wrap" Text="Book Store" VerticalAlignment="Top" Height="21" Width="78" FontSize="10" Foreground="#FFB7DED7"/>
         <TextBlock HorizontalAlignment="Left" Margin="163,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontFamily="MS Mincho" Height="17" FontSize="18" Foreground="#FFFCE2C8"><Run FontSize="12" Text="Employee ID "/><Run Text="1234567890"/></TextBlock>
-        <Button x:Name="checkBook" Content="Check books" HorizontalAlignment="Left" Margin="265,107,0,0" VerticalAlignment="Top" Width="166" Height="47" FontSize="24" FontWeight="Bold" Click="checkBook_Click"/>
-        <TextBox x:Name="txtCusIDO" HorizontalAlignment="Left" Height="33" Margin="41,184,0,0" TextWrapping="Wrap" Text="0123456789" VerticalAlignment="Top" Width="139" FontSize="24" VerticalContentAlignment="Bottom"/>
+        <Button x:Name="checkBook" Content="Check books" HorizontalAlignment="Left" Margin="210,90,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="24" FontWeight="Bold" Click="checkBook_Click"/>
+        <TextBox x:Name="txtCusIDO" HorizontalAlignment="Left" Height="33" Margin="41,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" FontSize="24" VerticalContentAlignment="Bottom"/>
         <TextBlock HorizontalAlignment="Left" Margin="41,228,0,0" TextWrapping="Wrap" Text="Volumes" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="txtISBNO" HorizontalAlignment="Left" Height="33" Margin="41,121,0,0" TextWrapping="Wrap" Text="0123456789" VerticalAlignment="Top" Width="139" FontSize="24" VerticalContentAlignment="Bottom"/>
+        <TextBox x:Name="txtISBNO" HorizontalAlignment="Left" Height="33" Margin="41,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" FontSize="24" VerticalContentAlignment="Bottom"/>
         <TextBlock HorizontalAlignment="Left" Margin="41,100,0,0" TextWrapping="Wrap" Text="ISBN" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="checkCustomerID" Content="Check Customer ID" HorizontalAlignment="Left" Margin="235,178,0,0" VerticalAlignment="Top" Width="209" Height="47" FontSize="22" FontWeight="Bold" Click="checkCustomerID_Click"/>
-        <TextBox x:Name="txtNumberOfBook" HorizontalAlignment="Left" Height="33" Margin="41,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" FontSize="24" Text="10" VerticalContentAlignment="Bottom"/>
+        <Button x:Name="checkCustomerID" Content="Check Customer ID" HorizontalAlignment="Left" Margin="210,161,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="22" FontWeight="Bold" Click="checkCustomerID_Click"/>
+        <TextBox x:Name="txtNumberOfBook" HorizontalAlignment="Left" Height="33" Margin="41,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" FontSize="24" VerticalContentAlignment="Bottom"/>
         <TextBlock HorizontalAlignment="Left" Margin="41,163,0,0" TextWrapping="Wrap" Text="Customer ID" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="Orderconfirmation" Content="Order confirmation" HorizontalAlignment="Left" Margin="210,318,0,0" VerticalAlignment="Top" Width="234" Height="58" FontSize="24" FontWeight="Bold" Click="Orderconfirmation_Click"/>
+        <Button x:Name="Orderconfirmation" Content="Order confirmation" HorizontalAlignment="Left" Margin="210,341,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="24" FontWeight="Bold" Click="Orderconfirmation_Click"/>
         <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="22" Margin="369,12,0,0" VerticalAlignment="Top" Width="61" Click="Back_Click"/>
+        <Button x:Name="History" Content="Order history" HorizontalAlignment="Left" Height="47" Margin="210,233,0,0" VerticalAlignment="Top" Width="234" FontWeight="Bold" FontSize="24" Click="History_Click"/>
+        <Button x:Name="DeleteAllHistory" Content="Delete All History" HorizontalAlignment="Left" Height="20" Margin="340,285,0,0" VerticalAlignment="Top" Width="104" Click="DeleteAllHistory_Click"/>
 
     </Grid>
 </Window>
