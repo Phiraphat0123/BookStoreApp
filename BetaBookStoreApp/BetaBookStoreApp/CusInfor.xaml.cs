@@ -24,7 +24,7 @@ namespace BetaBookStoreApp
         private string CusName;
         private string Address;
         private string Email;
-
+        private string[] TopicCus = {"Customer ID: ","Customer Name: ","Address: ","Email: "};
         public CusInfor()
         {
             InitializeComponent();
@@ -117,6 +117,7 @@ namespace BetaBookStoreApp
             CusName = txtCusName.Text;
             Address = txtAddress.Text;
             Email = txtEmail.Text;
+            int TopicCount = 0;
             int count = 1;
             Boolean check = false;
             string data = "";
@@ -137,7 +138,9 @@ namespace BetaBookStoreApp
                 {
                     foreach (string show in Data.GetCustomer("SELECT *", "FROM CustomerTable WHERE CustomerID='" + CusID + "';"))
                     {
-                        data = data + show + '\n';
+                        data = data + TopicCus[TopicCount]+show + '\n';
+                        TopicCount++;
+                        if (TopicCount ==4)TopicCount=0 ;
                     }
                     MessageBox.Show(data, "Show customer ID " + CusID);
 
@@ -148,7 +151,7 @@ namespace BetaBookStoreApp
                 }
             }
             else
-                if (CusID == "" || CusName == "" || Address == "" || Email == "")
+            if (CusID == "" || CusName == "" || Address == "" || Email == "")
             {
                 foreach (string showAll in Data.GetCustomer("SELECT CustomerID FROM CustomerTable;"))
                 {
