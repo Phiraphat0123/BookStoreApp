@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetaBookStoreApp"
         mc:Ignorable="d"
-        Title="Beta book store app." Height="450" Width="480.473" MinWidth="480.473" MinHeight="450">
+        Title="Beta book store app. Home" Height="450" Width="480.473" MinWidth="480.473" MinHeight="450">
     <Grid Margin="0,0,0.4,0" Background="#FF4D5784">
         <TextBlock HorizontalAlignment="Left" Margin="208,59,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="48" Width="116" FontSize="30" Foreground="#FF6F97B1" FontWeight="Bold"/>
         <Image HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="65" Margin="159,68,0,0" Source="storytelling.png"/>
