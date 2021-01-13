@@ -24,6 +24,8 @@ namespace BetaBookStoreApp
         private string NumberOfBook;
         private float TotalPrice;
         private string[] TopicHistory = {"ISBN: ","CUSTOMER ID: ","Price: "};
+        private string[] TopicBook = { "ISBN: ", "Title: ", "Description: ", "Price: " };
+        private string[] TopicCus = { "Customer ID: ", "Customer Name: ", "Address: ", "Email: " };
         int TopicCount = 0;
 
 
@@ -36,7 +38,7 @@ namespace BetaBookStoreApp
         }
 
         private void checkBook_Click(object sender, RoutedEventArgs e)
-        {
+        { int TopicCount = 0;
             ISBN = txtISBNO.Text;
             string data = "";
             Boolean checkISBN = false;
@@ -49,7 +51,9 @@ namespace BetaBookStoreApp
             {
                 foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='" + ISBN + "';"))
                 {
-                    data = data + show + '\n';
+                    data = data +TopicBook[TopicCount]+ show + '\n';
+                    TopicCount++;
+                    if (TopicCount == 4) TopicCount=0;
 
                 }
                 MessageBox.Show(data, "Show book ID " + ISBN);
@@ -63,6 +67,7 @@ namespace BetaBookStoreApp
 
         private void checkCustomerID_Click(object sender, RoutedEventArgs e)
         {
+            int TopicCount = 0;
             CusID = txtCusIDO.Text;
             string data = "";
             Boolean check = false;
@@ -75,7 +80,9 @@ namespace BetaBookStoreApp
             {
                 foreach (string show in Data.GetCustomer("SELECT *", "FROM CustomerTable WHERE CustomerID='" + CusID + "';"))
                 {
-                    data = data + show + '\n';
+                    data = data +TopicCus[TopicCount]+ show + '\n';
+                    TopicCount++;
+                    if (TopicCount == 4) TopicCount = 0;
                 }
                 MessageBox.Show(data, "Show customer ID " + CusID);
 
