@@ -80,7 +80,7 @@ namespace BetaBookStoreApp
             Boolean checkISBN= false;
             
             
-            if (Price != ""|| Title != ""|| Description != "") 
+            if (Price != ""|| title != ""|| Description != "") 
                 {
                 MessageBox.Show("Please delete the information. Title, Description, Price", "ERROR");
                 }
@@ -96,10 +96,10 @@ namespace BetaBookStoreApp
                 {
                     foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='"+ISBN+"';"))
                     {
-                        data = data +count+". "+ show + '\n';
-                        count++; 
+                        data = data + show + '\n';
+                       
                     }
-                    MessageBox.Show(data, "Show book ID" + ISBN);
+                    MessageBox.Show(data, "Show book ID " + ISBN);
                     
                 }
                 else { MessageBox.Show("Please delete ISBN information.","ERROR"); 
@@ -107,13 +107,14 @@ namespace BetaBookStoreApp
             }
             else
                 if (ISBN == "" || title == "" || Description == "" || Price == "")
-             {
+                {
                     foreach (string showAll in Data.GetBook("SELECT ISBN FROM BookTable;"))
                     {
-                        data = data + showAll + '\n';
+                        data = data + count + ". " + showAll + '\n';
+                        count++;
                     }
                         MessageBox.Show(data,"All Book");
-             }
+                }
             
                 
         }
@@ -188,6 +189,13 @@ namespace BetaBookStoreApp
                     MessageBox.Show("The data could not be deleted because there was no data.", "ERROR");
                 }
             }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Dashboard d = new Dashboard();
+            d.Show();
+            this.Close();
         }
     }
 }
