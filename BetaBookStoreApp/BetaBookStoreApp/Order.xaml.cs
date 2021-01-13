@@ -100,7 +100,9 @@ namespace BetaBookStoreApp
             NumberOfBook = txtNumberOfBook.Text;
             string data = "";
             string Price ="";
-            
+            Boolean checkISBN = false;
+            Boolean checkCusID = false;
+
             if (CusID == "" || ISBN == "" || NumberOfBook == "")
             {
                 MessageBox.Show("Please enter all information", "ERROR");
@@ -108,14 +110,23 @@ namespace BetaBookStoreApp
             else
             if (CusID != "" || ISBN != "" || NumberOfBook != "")
             {
-                Boolean checkISBN = false;
-                Boolean checkCusID = false;
+                
+                foreach (string infor in Data.GetCustomer("SELECT CustomerID FROM CustomerTable WHERE CustomerID ='" + CusID + "';"))
+                {
+                    if (CusID == infor) checkCusID = true;
+                }
+                foreach (string infor in Data.GetBook("SELECT ISBN FROM BookTable WHERE ISBN ='" + ISBN + "';"))
+                {
+                    if (ISBN == infor) checkISBN = true;
+                }
+
                 if (checkISBN == true && checkCusID == true)
                 {
-                    foreach (string price in Data.GetBook("SELECT Price FROM BookTable WHERE ISBN ='" + ISBN + "'"))
+                    foreach (string price in Data.GetBook("SELECT Price FROM BookTable WHERE ISBN ='" + ISBN + "';"))
                     {
                         Price = price;
                     }
+
                     TotalPrice = float.Parse(Price) * float.Parse(NumberOfBook);
                     Data.AddDataTransaction(ISBN, CusID, TotalPrice.ToString());
 
@@ -125,12 +136,22 @@ namespace BetaBookStoreApp
                         TopicCount++;
                         if (TopicCount == 3) TopicCount = 0;
                     }
-                    MessageBox.Show("");
+                    MessageBox.Show(data, "Order list ");
                     txtCusIDO.Text = "";
                     txtISBNO.Text = "";
                     txtNumberOfBook.Text = "";
                 }
-                else { MessageBox.Show("","ERROR"); }
+                else
+                if (checkCusID == false)
+                {
+                    MessageBox.Show("No customer ID information found. Please enter again.", "ERROR");
+                }
+
+                else
+                if (checkISBN == false)
+                {
+                    MessageBox.Show("ISBN information not found. Please enter again.", "ERROR");
+                }
             }
         }
 
