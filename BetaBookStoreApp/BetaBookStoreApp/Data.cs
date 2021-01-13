@@ -340,6 +340,108 @@ namespace BookStoreProject
 
 
         }
+        //history transaction Data
+        public static void CreatTransactionTable()
+        {
+
+            using (SqliteConnection db =
+               new SqliteConnection("Filename=transactionTable.db"))
+            {
+                db.Open();
+
+                String tableCommand = "CREATE TABLE IF NOT " +
+                    "EXISTS transactionTable (ISBN NVARCHAR(10) NOT NULL , " +
+                    "CustomerID NVARCHAR(10) NOT NULL ," +
+                    "Price NVARCHAR(9) NOT NULL )";
+
+                SqliteCommand createTable = new SqliteCommand(tableCommand, db);
+
+                createTable.ExecuteReader();
+            }
+        }
+        public static void AddDataTransaction(string ISBN, string CustomerID, string Price)
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=TransactionTable.db"))
+            {
+                db.Open();
+                SqliteCommand AddTransactionCommand = new SqliteCommand();
+                AddTransactionCommand.Connection = db;
+                AddTransactionCommand.CommandText = "INSERT INTO TransactionTable VALUES(@ISBN,@CustomerID,@Price);";
+                AddTransactionCommand.Parameters.AddWithValue("@ISBN", ISBN);
+                AddTransactionCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
+                AddTransactionCommand.Parameters.AddWithValue("@Price", Price);
+                AddTransactionCommand.ExecuteReader();
+                db.Close();
+
+            }
+
+        }
+        public static void DeleteTransaction(string CustomerID)
+        {
+            using (SqliteConnection db = new SqliteConnection("Filename=TransactionTable.db"))
+            {
+                db.Open();
+                SqliteCommand AddTransactionCommand = new SqliteCommand();
+                AddTransactionCommand.Connection = db;
+                AddTransactionCommand.CommandText = "DELETE FROM TransactionTable WHERE CustomerID = @CustomerID;";
+                AddTransactionCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
+
+
+
+                AddTransactionCommand.ExecuteReader();
+                db.Close();
+
+            }
+
+
+        }
+        public static List<String> GetTransaction(string Input1,string Input2)
+        {
+            List<string> data = new List<string>();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=TransactionTable.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand(Input1 +Input2, db);
+
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    data.Add(query.GetString(0));
+                    data.Add(query.GetString(1));
+                    data.Add(query.GetString(2));
+                    
+
+
+                }
+                db.Close();
+            }
+            return data;
+        }
+        public static List<String> GetTransaction(string Input)
+        {
+            List<string> data = new List<string>();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=TransactionTable.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand(Input , db);
+
+
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                while (query.Read())
+                {
+                    data.Add(query.GetString(0));
+                   
+
+
+
+                }
+                db.Close();
+            }
+            return data;
+        }
     }
 }
 
