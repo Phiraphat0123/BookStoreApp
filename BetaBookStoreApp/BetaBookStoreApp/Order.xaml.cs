@@ -22,34 +22,37 @@ namespace BetaBookStoreApp
     {   private  string CusID;
         private string ISBN;
         private string NumberOfBook;
+        private float TotalPrice;
+        private string[] TopicHistory = {"ISBN: ","CUSTOMER ID: ","Price: "};
+        int TopicCount = 0;
+
+
+
         public Order()
         {
             InitializeComponent();
             Data.CreatTransactionTable();
+           
         }
-
-        public string CusID1 { get => CusID; set => CusID = txtCusIDO.Text; }
-        public string ISBN1 { get => ISBN; set => ISBN = txtISBNO.Text; }
-        public string NumberOfBook1 { get => NumberOfBook; set => NumberOfBook = txtNumberOfBook.Text; }
 
         private void checkBook_Click(object sender, RoutedEventArgs e)
         {
-            ISBN1 = txtISBNO.Text;
+            ISBN = txtISBNO.Text;
             string data = "";
             Boolean checkISBN = false;
             foreach (string isbn in Data.GetBook("SELECT ISBN FROM BookTable;"))
             {
-                if (ISBN1 == isbn) checkISBN = true;
+                if (ISBN == isbn) checkISBN = true;
             }
 
             if (checkISBN == true)
             {
-                foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='" + ISBN1 + "';"))
+                foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='" + ISBN + "';"))
                 {
                     data = data + show + '\n';
 
                 }
-                MessageBox.Show(data, "Show book ID " + ISBN1);
+                MessageBox.Show(data, "Show book ID " + ISBN);
 
             }
             else
@@ -60,26 +63,26 @@ namespace BetaBookStoreApp
 
         private void checkCustomerID_Click(object sender, RoutedEventArgs e)
         {
-            CusID1 = txtCusIDO.Text;
+            CusID = txtCusIDO.Text;
             string data = "";
             Boolean check = false;
             foreach (string cusid in Data.GetCustomer("SELECT CustomerID FROM CustomerTable;"))
             {
-                if (CusID1 == cusid) check = true;
+                if (CusID == cusid) check = true;
             }
 
             if (check == true)
             {
-                foreach (string show in Data.GetCustomer("SELECT *", "FROM CustomerTable WHERE CustomerID='" + CusID1 + "';"))
+                foreach (string show in Data.GetCustomer("SELECT *", "FROM CustomerTable WHERE CustomerID='" + CusID + "';"))
                 {
                     data = data + show + '\n';
                 }
-                MessageBox.Show(data, "Show customer ID " + CusID1);
+                MessageBox.Show(data, "Show customer ID " + CusID);
 
             }
             else
             {
-                MessageBox.Show("Please delete Customer ID information.", "ERROR");
+                MessageBox.Show("No information required.", "ERROR");
             }
         }
 
@@ -92,13 +95,62 @@ namespace BetaBookStoreApp
 
         private void Orderconfirmation_Click(object sender, RoutedEventArgs e)
         {
-            CusID1 = txtCusIDO.Text;
-            ISBN1 = txtISBNO.Text;
-            NumberOfBook1 = txtNumberOfBook.Text;
-            if (CusID1 =""||) 
-            { 
+            CusID = txtCusIDO.Text;
+            ISBN = txtISBNO.Text;
+            NumberOfBook = txtNumberOfBook.Text;
+            string data = "";
+            string Price ="";
+            
+            if (CusID == "" || ISBN == "" || NumberOfBook == "")
+            {
+                MessageBox.Show("Please enter all information", "ERROR");
+            }
+            else
+            if (CusID != "" || ISBN != "" || NumberOfBook != "")
+            {
+                Boolean checkISBN = false;
+                Boolean checkCusID = false;
+                if (checkISBN == true && checkCusID == true)
+                {
+                    foreach (string price in Data.GetBook("SELECT Price FROM BookTable WHERE ISBN ='" + ISBN + "'"))
+                    {
+                        Price = price;
+                    }
+                    TotalPrice = float.Parse(Price) * float.Parse(NumberOfBook);
+                    Data.AddDataTransaction(ISBN, CusID, TotalPrice.ToString());
+
+                    foreach (string infor in Data.GetTransaction("SELECT * FROM TransactionTable WHERE ", "ISBN ='" + ISBN + "';"))
+                    {
+                        data = data + TopicHistory[TopicCount] + infor + '\n';
+                        TopicCount++;
+                        if (TopicCount == 3) TopicCount = 0;
+                    }
+                    MessageBox.Show("");
+                    txtCusIDO.Text = "";
+                    txtISBNO.Text = "";
+                    txtNumberOfBook.Text = "";
+                }
+                else { MessageBox.Show("","ERROR"); }
+            }
+        }
+
+        private void DeleteAllHistory_Click(object sender, RoutedEventArgs e)
+        {
+            Data.DeleteTransaction();
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        { 
+            string data = "";
+           
+            foreach (string infor in Data.GetTransaction("SELECT *  ", "FROM TransactionTable;"))
+            {   
+                data = data +TopicHistory[TopicCount]+ infor + '\n';
+                TopicCount++;
+                if (TopicCount == 3) TopicCount = 0;  
                 
             }
+            MessageBox.Show(data,"Show all transaction ");
         }
     }
 }
