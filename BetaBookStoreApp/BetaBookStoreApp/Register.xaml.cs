@@ -23,6 +23,7 @@ namespace BetaBookStoreApp
     {
         private string EmID;
        private string Pw;
+        
         public Register()
         {
             InitializeComponent();
