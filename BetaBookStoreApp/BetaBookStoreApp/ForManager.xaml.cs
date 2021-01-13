@@ -22,8 +22,8 @@ namespace BetaBookStoreApp
     {
         private int maID;
         private string maPw;
-        Register register;
-        MainWindow main; 
+      
+        
         
        
     
@@ -31,8 +31,8 @@ namespace BetaBookStoreApp
         public ForManager()
         {
             InitializeComponent();
-            register = new Register();
-            main = new MainWindow();
+            
+            
         }
 
        
@@ -51,12 +51,13 @@ namespace BetaBookStoreApp
             }else
             if (maID == 1234567890 && maPw == "jbil0123")
             {
-                
+                Register register = new Register();
                 register.Show();
                 this.Close();
             }
             else {
                 MessageBox.Show("Password or ID is not correct.");
+                MainWindow main = new MainWindow();
                 main.Show();
                 this.Close();
             }
@@ -64,6 +65,7 @@ namespace BetaBookStoreApp
 
         private void BHome_click(object sender, RoutedEventArgs e)
         {
+            MainWindow main = new MainWindow();
             main.Show();
             this.Close();
         }
