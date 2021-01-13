@@ -19,16 +19,10 @@ namespace BetaBookStoreApp
     /// </summary>
     public partial class Dashboard : Window
     {
-     
-        
-        
         public Dashboard()
         {
             InitializeComponent();
-              
         }
-
-        
 
         private void BBookIn_Click(object sender, RoutedEventArgs e)
         {
@@ -48,6 +42,13 @@ namespace BetaBookStoreApp
         {
             Order order = new Order();
             order.Show();
+            this.Close();
+        }
+
+        private void BHome_click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
             this.Close();
         }
     }
