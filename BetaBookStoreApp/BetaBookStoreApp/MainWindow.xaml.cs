@@ -25,13 +25,13 @@ namespace BetaBookStoreApp
     public partial class MainWindow : Window
     {   private string EmID;
         private string Pw;
-        Dashboard dash;
+       
         public MainWindow()
         {
            
             InitializeComponent();
             Data.CreatEmployeeTable();
-            dash = new Dashboard();
+            
 
 
         }
@@ -72,6 +72,7 @@ namespace BetaBookStoreApp
             else
             if (checkId == true && checkPw == true)
             {
+                Dashboard dash = new Dashboard();
                 dash.Show();
                 this.Close();
                 EmID = "";
