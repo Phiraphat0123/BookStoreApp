@@ -24,6 +24,7 @@ namespace BetaBookStoreApp
         private string CusName;
         private string Address;
         private string Email;
+
         public CusInfor()
         {
             InitializeComponent();
@@ -179,7 +180,7 @@ namespace BetaBookStoreApp
                 }
                 if (check == true)
                 {
-                    Data.DeleteBook(CusID);
+                    Data.DeleteCustomer(CusID);
                     txtCusID.Text = "";
                     txtCusName.Text = "";
                     txtAddress.Text = "";
@@ -192,6 +193,13 @@ namespace BetaBookStoreApp
                     MessageBox.Show("The data could not be deleted because there was no data.", "ERROR");
                 }
             }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Dashboard d = new Dashboard();
+            d.Show();
+            this.Close();
         }
     }
 }
