@@ -70,7 +70,43 @@ namespace BetaBookStoreApp
         }
 
         private void EditCus_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            CusID = txtCusID.Text;
+            CusName = txtCusName.Text;
+            Address = txtAddress.Text;
+            Email = txtEmail.Text;
+            Boolean check = false;
+            if (CusID == "" || CusName == ""||Address == ""||Email =="")
+            {
+                MessageBox.Show("Please enter all information.", "ERROR");
+            }
+            else
+            {
+                foreach (string cusid in Data.GetBook("SELECT CustomerID FROM CustomerTable;"))
+                {
+                    if (CusID == cusid)
+                    {
+                        check = true;
+                    }
+                }
+
+                if (check == true)
+                {
+                    Data.UpdateBook("UPDATE BookTable SET Email ='" + Email +"',CustomerName = '" +CusName +"', Address='"+Address+"' WHERE CustomerID =" + CusID + ";");
+
+                    txtCusID.Text = "";
+                    txtCusName.Text = "";
+                    txtAddress.Text = "";
+                    txtEmail.Text = "";
+
+                }
+                else
+                if (check == false)
+                {
+                    MessageBox.Show("Cannot be edited due to lack of information.", "ERROR");
+                }
+
+            }
 
         }
 
@@ -80,6 +116,7 @@ namespace BetaBookStoreApp
             CusName = txtCusName.Text;
             Address = txtAddress.Text;
             Email = txtEmail.Text;
+            int count = 1;
             Boolean check = false;
             string data = "";
             
@@ -101,7 +138,7 @@ namespace BetaBookStoreApp
                     {
                         data = data + show + '\n';
                     }
-                    MessageBox.Show(data, "Show " + CusID);
+                    MessageBox.Show(data, "Show customer ID " + CusID);
 
                 }
                 else
@@ -114,9 +151,10 @@ namespace BetaBookStoreApp
             {
                 foreach (string showAll in Data.GetCustomer("SELECT CustomerID FROM CustomerTable;"))
                 {
-                    data = data + showAll + '\n';
+                    data = data +count+". "+ showAll + '\n';
+                    count++;
                 }
-                MessageBox.Show(data);
+                MessageBox.Show(data,"All Customer ID");
             }
 
 
@@ -124,7 +162,36 @@ namespace BetaBookStoreApp
 
         private void DeleteCus_Click(object sender, RoutedEventArgs e)
         {
+            CusID= txtCusID.Text;
+            Boolean check = false;
+            if (CusID == "")
+            {
+                MessageBox.Show("Please enter Customer ID .", "ERROR");
+            }
+            else
+            {
+                foreach (string cusid in Data.GetCustomer("SELECT CustomerID FROM CustomerTable;"))
+                {
+                    if (CusID == cusid)
+                    {
+                        check = true;
+                    }
+                }
+                if (check == true)
+                {
+                    Data.DeleteBook(CusID);
+                    txtCusID.Text = "";
+                    txtCusName.Text = "";
+                    txtAddress.Text = "";
+                    txtEmail.Text = "";
 
+                }
+                else
+                if (check == false)
+                {
+                    MessageBox.Show("The data could not be deleted because there was no data.", "ERROR");
+                }
+            }
         }
     }
 }
