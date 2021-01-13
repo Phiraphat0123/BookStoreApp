@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetaBookStoreApp"
         mc:Ignorable="d"
-        Title="ForManager" Height="450" Width="480.473">
+        Title="Manager Log in" Height="450" Width="480.473">
     <Grid Margin="0,0,0.4,0" Background="#FF4D5784">
         <TextBlock HorizontalAlignment="Left" Height="34" Margin="130,104,0,0" TextWrapping="Wrap" Text="Manager ID" VerticalAlignment="Top" Width="139" FontSize="24" FontWeight="Bold" Foreground="#FFFCE2C8"/>
         <PasswordBox x:Name="txtPassw" HorizontalAlignment="Left" Height="36" Margin="130,236,0,0" VerticalAlignment="Top" Width="220" FontSize="25" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
