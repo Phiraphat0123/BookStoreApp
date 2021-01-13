@@ -24,6 +24,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="46,202,0,0" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="46,162,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="46,121,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="22" Margin="369,12,0,0" VerticalAlignment="Top" Width="61" Click="Back_Click"/>
 
     </Grid>
 </Window>
