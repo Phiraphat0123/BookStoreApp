@@ -98,7 +98,6 @@ namespace BetaBookStoreApp
             CusID = txtCusIDO.Text;
             ISBN = txtISBNO.Text;
             NumberOfBook = txtNumberOfBook.Text;
-            string data = "";
             string Price ="";
             Boolean checkISBN = false;
             Boolean checkCusID = false;
@@ -130,13 +129,8 @@ namespace BetaBookStoreApp
                     TotalPrice = float.Parse(Price) * float.Parse(NumberOfBook);
                     Data.AddDataTransaction(ISBN, CusID, TotalPrice.ToString());
 
-                    foreach (string infor in Data.GetTransaction("SELECT * FROM TransactionTable WHERE ", "ISBN ='" + ISBN + "';"))
-                    {
-                        data = data + TopicHistory[TopicCount] + infor + '\n';
-                        TopicCount++;
-                        if (TopicCount == 3) TopicCount = 0;
-                    }
-                    MessageBox.Show(data, "Order list ");
+
+                    MessageBox.Show("ISBN: " + ISBN + '\n' + "Customer ID: " + CusID + '\n' + "Total Price: " + TotalPrice.ToString() + '\n', "Order list "); ;
                     txtCusIDO.Text = "";
                     txtISBNO.Text = "";
                     txtNumberOfBook.Text = "";
