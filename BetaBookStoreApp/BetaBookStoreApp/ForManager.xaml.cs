@@ -23,29 +23,17 @@ namespace BetaBookStoreApp
         private int maID;
         private string maPw;
       
-        
-        
-       
-    
-
         public ForManager()
         {
             InitializeComponent();
             
-            
         }
-
-       
-        
 
         private void submit_click(object sender, RoutedEventArgs e)
         {//idmanager = 0123456789 password = Jbil0123
             maID = int.Parse(txtIdMa.Text);
             maPw = txtPassw.Password;
-            /* if (maID!=1234567890 || maPw!="jbil0123") {
-                 MessageBox.Show("Password or ID is not correct.");
-                 this.Close();
-             }*/
+            
             if (maID.Equals(null)||maPw==null) {
                 MessageBox.Show("Please enter information", "ERROR");
             }else
