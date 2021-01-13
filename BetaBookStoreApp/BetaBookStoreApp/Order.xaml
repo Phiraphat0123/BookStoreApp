@@ -5,25 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetaBookStoreApp"
         mc:Ignorable="d"
-        Title="Order" Height="460" Width="480.473">
-    <Grid Margin="0,0,0.4,0.4">
+        Title="Transaction information" Height="460" Width="480.473">
+    <Grid Margin="0,0,0.4,0.4" Background="#FF4D5784">
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="476" Margin="-1,-1,-1,0" Background="#FF6F97B1"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="31,10,0,0" VerticalAlignment="Top" Width="57" Source="storytelling.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,6,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="21" Width="45" FontWeight="Bold" Foreground="#FFB7DED7" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,23,0,0" TextWrapping="Wrap" Text="Book Store" VerticalAlignment="Top" Height="21" Width="78" FontSize="10" Foreground="#FFB7DED7"/>
-        <TextBlock HorizontalAlignment="Left" Margin="163,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontFamily="MS Mincho" Height="17" FontSize="18" Foreground="#FFFCE2C8"><Run FontSize="12" Text="Employee ID "/><Run Text="1234567890"/></TextBlock>
-        <Button x:Name="checkBook" Content="Check books" HorizontalAlignment="Left" Margin="210,90,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="24" FontWeight="Bold" Click="checkBook_Click"/>
-        <TextBox x:Name="txtCusIDO" HorizontalAlignment="Left" Height="33" Margin="41,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" FontSize="24" VerticalContentAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="41,228,0,0" TextWrapping="Wrap" Text="Volumes" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox x:Name="txtISBNO" HorizontalAlignment="Left" Height="33" Margin="41,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" FontSize="24" VerticalContentAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="41,100,0,0" TextWrapping="Wrap" Text="ISBN" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="checkCustomerID" Content="Check Customer ID" HorizontalAlignment="Left" Margin="210,161,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="22" FontWeight="Bold" Click="checkCustomerID_Click"/>
-        <TextBox x:Name="txtNumberOfBook" HorizontalAlignment="Left" Height="33" Margin="41,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" FontSize="24" VerticalContentAlignment="Bottom"/>
-        <TextBlock HorizontalAlignment="Left" Margin="41,163,0,0" TextWrapping="Wrap" Text="Customer ID" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Button x:Name="Orderconfirmation" Content="Order confirmation" HorizontalAlignment="Left" Margin="210,341,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="24" FontWeight="Bold" Click="Orderconfirmation_Click"/>
-        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="22" Margin="369,12,0,0" VerticalAlignment="Top" Width="61" Click="Back_Click"/>
-        <Button x:Name="History" Content="Order history" HorizontalAlignment="Left" Height="47" Margin="210,233,0,0" VerticalAlignment="Top" Width="234" FontWeight="Bold" FontSize="24" Click="History_Click"/>
-        <Button x:Name="DeleteAllHistory" Content="Delete All History" HorizontalAlignment="Left" Height="20" Margin="340,285,0,0" VerticalAlignment="Top" Width="104" Click="DeleteAllHistory_Click"/>
+        <Button x:Name="checkBook" Content="Check books" HorizontalAlignment="Left" Margin="210,90,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="24" FontWeight="Bold" Click="checkBook_Click" Foreground="#FFFCE2C8" BorderBrush="{x:Null}" Background="#FF6F97B1"/>
+        <TextBox x:Name="txtCusIDO" HorizontalAlignment="Left" Height="33" Margin="38,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="24" VerticalContentAlignment="Bottom" Background="#FFB7DED7" BorderBrush="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,206,0,0" TextWrapping="Wrap" Text="Volumes" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <TextBox x:Name="txtISBNO" HorizontalAlignment="Left" Height="33" Margin="38,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" FontSize="24" VerticalContentAlignment="Bottom" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,78,0,0" TextWrapping="Wrap" Text="ISBN" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <Button x:Name="checkCustomerID" Content="Check Customer ID" HorizontalAlignment="Left" Margin="210,161,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="22" FontWeight="Bold" Click="checkCustomerID_Click" Foreground="#FFFCE2C8" Background="#FF6F97B1" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="txtNumberOfBook" HorizontalAlignment="Left" Height="33" Margin="38,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" FontSize="24" VerticalContentAlignment="Bottom" Background="#FFB7DED7" BorderBrush="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,142,0,0" TextWrapping="Wrap" Text="Customer ID" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <Button x:Name="Orderconfirmation" Content="Order confirmation" HorizontalAlignment="Left" Margin="118,350,0,0" VerticalAlignment="Top" Width="234" Height="47" FontSize="24" FontWeight="Bold" Click="Orderconfirmation_Click" Foreground="#FFFCE2C8" Background="#FFFF748A" BorderBrush="{x:Null}"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="22" Margin="369,12,0,0" VerticalAlignment="Top" Width="61" Click="Back_Click" Background="#FFFF748A" FontWeight="Bold" Foreground="#FFFCE2C8" BorderBrush="{x:Null}"/>
+        <Button x:Name="History" Content="Order history" HorizontalAlignment="Left" Height="47" Margin="210,233,0,0" VerticalAlignment="Top" Width="234" FontWeight="Bold" FontSize="24" Click="History_Click" Foreground="#FFFCE2C8" Background="#FF6F97B1" BorderBrush="{x:Null}"/>
+        <Button x:Name="DeleteAllHistory" Content="Delete All History" HorizontalAlignment="Left" Height="20" Margin="340,285,0,0" VerticalAlignment="Top" Width="104" Click="DeleteAllHistory_Click" Foreground="#FFFCE2C8" Background="#FFFF748A" BorderBrush="{x:Null}"/>
+        <Border BorderBrush="#FFFF748A" BorderThickness="1" HorizontalAlignment="Left" Height="52" Margin="16,274,0,0" VerticalAlignment="Top" Width="186">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="175" FontSize="10" Margin="8.2,9.2,-0.8,0"><Run Text="&#x9;- "/><Run Text="To check the information, it is necessary to fill in the fields correctly"/></TextBlock>
+        </Border>
 
     </Grid>
 </Window>
