@@ -5,26 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BetaBookStoreApp"
         mc:Ignorable="d"
-        Title="CusInfor" Height="460" Width="480.473">
-    <Grid>
+        Title="Customer information" Height="460" Width="480.473">
+    <Grid Background="#FF4D5784">
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="476" Margin="-1,-1,-0.6,0" Background="#FF6F97B1"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="31,10,0,0" VerticalAlignment="Top" Width="57" Source="storytelling.png"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,6,0,0" TextWrapping="Wrap" Text="Bright" VerticalAlignment="Top" Height="21" Width="45" FontWeight="Bold" Foreground="#FFB7DED7" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,23,0,0" TextWrapping="Wrap" Text="Book Store" VerticalAlignment="Top" Height="21" Width="78" FontSize="10" Foreground="#FFB7DED7"/>
-        <TextBlock HorizontalAlignment="Left" Margin="163,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" FontFamily="MS Mincho" Height="17" FontSize="18" Foreground="#FFFCE2C8"><Run FontSize="12" Text="Employee ID "/><Run Text="1234567890"/></TextBlock>
-        <Button x:Name="AddCus" Content="Add Customer" HorizontalAlignment="Left" Margin="269,82,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="AddCus_Click"/>
-        <Button x:Name="EditCus" Content="Edit Customer" HorizontalAlignment="Left" Margin="269,151,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="EditCus_Click"/>
-        <Button x:Name="ShowAllCus" Content="Show All Customers" HorizontalAlignment="Left" Margin="269,225,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="ShowAllCus_Click"/>
-        <Button x:Name="DeleteCus" Content="Delete Customer" HorizontalAlignment="Left" Margin="269,292,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="DeleteCus_Click"/>
-        <TextBox x:Name="txtCusID" HorizontalAlignment="Left" Height="25" Margin="46,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
-        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="25" Margin="46,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
-        <TextBox x:Name="txtCusName" HorizontalAlignment="Left" Height="25" Margin="46,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="25" Margin="46,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,80,0,0" TextWrapping="Wrap" Text="Customer ID" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,202,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,162,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="46,121,0,0" TextWrapping="Wrap" Text="Customer Name" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="22" Margin="369,12,0,0" VerticalAlignment="Top" Width="61" Click="Back_Click"/>
+        <Button x:Name="AddCus" Content="Add Customer" HorizontalAlignment="Left" Margin="269,61,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="AddCus_Click" Foreground="#FFFCE2C8" Background="#FFFF748A" BorderBrush="{x:Null}"/>
+        <Button x:Name="EditCus" Content="Edit Customer" HorizontalAlignment="Left" Margin="269,130,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="EditCus_Click" Foreground="#FFFCE2C8" BorderBrush="{x:Null}" Background="#FFFF748A"/>
+        <Button x:Name="ShowAllCus" Content="Show All Customers" HorizontalAlignment="Left" Margin="269,204,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="ShowAllCus_Click" Foreground="#FFFCE2C8" Background="#FFFF748A" BorderBrush="{x:Null}"/>
+        <Button x:Name="DeleteCus" Content="Delete Customer" HorizontalAlignment="Left" Margin="269,271,0,0" VerticalAlignment="Top" Width="169" Height="49" FontSize="16" FontWeight="Bold" Click="DeleteCus_Click" Foreground="#FFFCE2C8" BorderBrush="{x:Null}" Background="#FFFF748A"/>
+        <TextBox x:Name="txtCusID" HorizontalAlignment="Left" Height="25" Margin="46,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
+        <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="25" Margin="46,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
+        <TextBox x:Name="txtCusName" HorizontalAlignment="Left" Height="25" Margin="46,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="25" Margin="46,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="16" BorderBrush="{x:Null}" Background="#FFB7DED7"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,59,0,0" TextWrapping="Wrap" Text="Customer ID" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,180,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,140,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="46,100,0,0" TextWrapping="Wrap" Text="Customer Name" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFFCE2C8"/>
+        <Button x:Name="Back" Content="Back" HorizontalAlignment="Left" Height="22" Margin="369,12,0,0" VerticalAlignment="Top" Width="61" Click="Back_Click" Background="#FFFF748A" Foreground="#FFFCE2C8" FontWeight="Bold" BorderBrush="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Height="193" Margin="46,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169" FontSize="10"><Run Text="&#x9;- "/><Run Text="Adding customer ID information must not have a leading zero and can be any 4-10 digits."/><LineBreak/><Run Text="&#x9;- To edit information, you must enter Customer. ID that matches the Customer information The existing ID is then entered in another field that is new."/><LineBreak/><Run Text="&#x9;- The show will show all information, but if input Customer ID, it will show Customer ID, Name, Address, Email."/><LineBreak/><Run Text="&#x9;- Deleting is required Customer ID information."/></TextBlock>
 
     </Grid>
 </Window>
