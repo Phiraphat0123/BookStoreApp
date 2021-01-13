@@ -42,3 +42,7 @@ C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\BInfor.g.
 C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\BInfor.baml
 C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\CusInfor.g.cs
 C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\CusInfor.baml
+C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\Order.g.cs
+C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\Order.baml
+C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\OrderReport.g.cs
+C:\Users\ASUS\source\repos\BetaBookStoreApp\BetaBookStoreApp\obj\Debug\OrderReport.baml
