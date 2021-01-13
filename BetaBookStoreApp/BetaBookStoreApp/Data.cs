@@ -376,18 +376,15 @@ namespace BookStoreProject
             }
 
         }
-        public static void DeleteTransaction(string CustomerID)
+        public static void DeleteTransaction()
         {
             using (SqliteConnection db = new SqliteConnection("Filename=TransactionTable.db"))
             {
                 db.Open();
                 SqliteCommand AddTransactionCommand = new SqliteCommand();
                 AddTransactionCommand.Connection = db;
-                AddTransactionCommand.CommandText = "DELETE FROM TransactionTable WHERE CustomerID = @CustomerID;";
-                AddTransactionCommand.Parameters.AddWithValue("@CustomerID", CustomerID);
-
-
-
+                AddTransactionCommand.CommandText = "DELETE FROM TransactionTable ;";
+               
                 AddTransactionCommand.ExecuteReader();
                 db.Close();
 
