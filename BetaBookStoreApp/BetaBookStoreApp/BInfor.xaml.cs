@@ -24,6 +24,7 @@ namespace BetaBookStoreApp
         private string title;
         private string Description;
         private string Price;
+        private string[] TopicBook = {"ISBN: ","Title: ","Description: ","Price: "}; 
 
         public BInfor()
         {
@@ -58,7 +59,7 @@ namespace BetaBookStoreApp
                 } else
                 if (check == false) 
                 {
-                    Data.AddDataBook(ISBN, Title, Description, Price);
+                    Data.AddDataBook(ISBN, title, Description, Price);
                     txtDescription.Text = "";
                     txtISBN.Text = "";
                     txtPrice.Text = "";
@@ -75,6 +76,7 @@ namespace BetaBookStoreApp
             title = txtTitle.Text;
             Description = txtDescription.Text;
             Price = txtPrice.Text;
+            int TopicCount = 0;
             int count = 1;
             string data = "";
             Boolean checkISBN= false;
@@ -96,7 +98,9 @@ namespace BetaBookStoreApp
                 {
                     foreach (string show in Data.GetBook("SELECT *", "FROM BookTable WHERE ISBN='"+ISBN+"';"))
                     {
-                        data = data + show + '\n';
+                        data = data +TopicBook[TopicCount]+ show + '\n';
+                        TopicCount++;
+                        if (TopicCount ==4)TopicCount = 0 ;
                        
                     }
                     MessageBox.Show(data, "Show book ID " + ISBN);
