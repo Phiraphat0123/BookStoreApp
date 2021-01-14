@@ -83,7 +83,7 @@ namespace BetaBookStoreApp
             }
             else
             {
-                foreach (string cusid in Data.GetBook("SELECT CustomerID FROM CustomerTable;"))
+                foreach (string cusid in Data.GetCustomer("SELECT CustomerID FROM CustomerTable;"))
                 {
                     if (CusID == cusid)
                     {
@@ -93,7 +93,7 @@ namespace BetaBookStoreApp
 
                 if (check == true)
                 {
-                    Data.UpdateBook("UPDATE BookTable SET Email ='" + Email +"',CustomerName = '" +CusName +"', Address='"+Address+"' WHERE CustomerID =" + CusID + ";");
+                    Data.UpdateCustomer("UPDATE CustomerTable SET Email ='" + Email +"',CustomerName = '" +CusName +"', Address='"+Address+"' WHERE CustomerID =" + CusID + ";");
 
                     txtCusID.Text = "";
                     txtCusName.Text = "";
