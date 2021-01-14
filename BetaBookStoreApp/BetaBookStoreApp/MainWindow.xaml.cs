@@ -50,14 +50,14 @@ namespace BetaBookStoreApp
             Pw = txtPw.Password;
             Boolean checkId= false;
             Boolean checkPw = false;
-            foreach (string dataId in Data.GetEmployee("SELECT ID FROM EmployeeTable ;")) 
+            foreach (string dataId in Data.GetEmployee("SELECT ID FROM EmployeeTable WHERE ID ='"+EmID+"';")) 
             {
                 if (EmID == dataId) {
                     checkId = true;
                 }
                 
             }
-            foreach (string dataPw in Data.GetEmployee("SELECT Password FROM EmployeeTable;"))
+            foreach (string dataPw in Data.GetEmployee("SELECT Password FROM EmployeeTable WHERE ID = '"+EmID+"';"))
             {
                 if (Pw == dataPw) 
                 {
